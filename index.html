@@ -1589,6 +1589,12 @@ Speak aloud: "I complete my SPEAK phase with celebration of my embodied transfor
             return ceremonies[ceremonyKey] || 'Transition ceremony not found.';
         }
     </script>
+</script>
+<script>
+// SURGICAL FIX - Only fixes the specific broken buttons/functions
+function updateEmbodimentFlow(value){document.getElementById('embodiment-flow').textContent=value;if(typeof guideState!=='undefined'){guideState.embodimentFlow=parseInt(value);saveState();}}function addBreakthrough(){const b=document.getElementById('breakthrough-count');if(b){let c=parseInt(b.textContent)||0;c++;b.textContent=c;const r=document.getElementById('integration-tests');if(r){let rc=parseInt(r.textContent)||0;rc++;r.textContent=rc;}if(typeof guideState!=='undefined'){guideState.breakthroughCount=c;guideState.integrationTests=rc;saveState();}showNotification('🎉 Breakthrough logged!')}}function addResistance(){const r=document.getElementById('resistance-count');if(r){let c=parseInt(r.textContent)||0;c++;r.textContent=c;if(typeof guideState!=='undefined'){guideState.resistanceCount=c;saveState();}showNotification('📝 Resistance logged!')}}function addIntegrationTest(){const i=document.getElementById('integration-tests');if(i){let c=parseInt(i.textContent)||0;c++;i.textContent=c;if(typeof guideState!=='undefined'){guideState.integrationTests=c;saveState();}showNotification('🎭 Integration test logged!')}}function saveFoundationArchive(){const t=document.getElementById('foundation-archive');const c=t?.value.trim();if(c){if(typeof guideState!=='undefined'){guideState.foundationArchive=c;saveState();}if(t)t.value='';showNotification('📖 Foundation archived & cleared!')}else{showNotification('❌ Please paste fiction first')}}function saveOracleArchive(){const t=document.getElementById('oracle-archive');const c=t?.value.trim();if(c){if(typeof guideState!=='undefined'){guideState.oracleArchive=c;saveState();}if(t)t.value='';showNotification('🎯 Oracle archived & cleared!')}else{showNotification('❌ Please paste fiction first')}}const s=document.getElementById('embodiment-slider');if(s)s.oninput=function(){updateEmbodimentFlow(this.value)};console.log('✅ Rose Method fixes applied!');
+</script>
+</body>
 </body>
 </html><!DOCTYPE html>
 <html lang="en">
